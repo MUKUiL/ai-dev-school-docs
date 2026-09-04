@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# 取り込み（チャンク化 → 埋め込み → Supabase 登録）の入口。中身はコンテナ内の npm run ingest。
+# 外部 API を呼び、費用が出る。実行は人が行う（CLAUDE.md 参照）。引数省略時は corpus を取り込む。
+set -euo pipefail
+cd "$(dirname "$0")/.."
+exec docker compose run --rm app npm run ingest -- "${1:-corpus}"

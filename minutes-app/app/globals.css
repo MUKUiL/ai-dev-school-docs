@@ -1,0 +1,28 @@
+* { box-sizing: border-box; }
+body {
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+  margin: 0; padding: 2rem 1rem; background: #f8f9fb; color: #1a1d26;
+}
+.app { max-width: 720px; margin: 0 auto; }
+h1 { font-size: 1.5rem; }
+.form { display: flex; flex-direction: column; gap: 0.75rem; }
+textarea {
+  width: 100%; padding: 0.75rem; font-size: 1rem; line-height: 1.6;
+  border: 1px solid #dde2ea; border-radius: 8px; font-family: inherit;
+}
+button {
+  align-self: flex-start; padding: 0.5rem 1.25rem; font-size: 1rem;
+  background: #2563eb; color: #fff; border: none; border-radius: 8px; cursor: pointer;
+}
+button:disabled { background: #94a3b8; cursor: default; }
+.status { padding: 0.75rem 1rem; border-radius: 8px; background: #eef2ff; }
+.status.error { background: #fef2f2; border: 1px solid #fca5a5; }
+.result h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+.result ul { list-style: none; padding: 0; }
+.result li {
+  display: flex; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid #e2e6ed;
+}
+.owner { min-width: 6rem; font-weight: 700; }
+.task { flex: 1; word-break: break-word; }
+.due { color: #5c6370; }
+.empty { color: #5c6370; }

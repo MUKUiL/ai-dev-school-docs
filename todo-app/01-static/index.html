@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo リスト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>ToDo リスト</h1>
+
+    <form class="input-row" id="add-form">
+      <input
+        type="text"
+        id="new-todo"
+        placeholder="やることを入力"
+        autocomplete="off"
+      >
+      <button type="submit">追加</button>
+    </form>
+
+    <p class="counter" id="counter">未完了 0 件 / 全 0 件</p>
+
+    <ul class="todo-list" id="todo-list"></ul>
+
+    <p class="empty" id="empty">まだ ToDo がありません。上の入力欄から追加してください。</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

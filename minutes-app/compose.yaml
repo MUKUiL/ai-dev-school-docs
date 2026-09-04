@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    # ソースはホストと共有し、node_modules だけはコンテナ側を使う。
+    # こうするとホストに node_modules を作らなくて済む。
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    env_file:
+      - path: .env.local
+        required: false
+
+volumes:
+  node_modules:

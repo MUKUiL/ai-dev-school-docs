@@ -1,0 +1,13 @@
+{
+  "name": "minutes-app",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/app",
+  "forwardPorts": [3000],
+  "overrideCommand": true,
+  "customizations": {
+    "vscode": {
+      "extensions": []
+    }
+  }
+}

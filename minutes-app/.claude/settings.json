@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./scripts/verify)",
+      "Bash(./scripts/dev)",
+      "Bash(docker compose run --rm app *)",
+      "Bash(docker compose up *)",
+      "Bash(git status)",
+      "Bash(git diff *)"
+    ],
+    "ask": [
+      "Bash(./scripts/install)",
+      "Bash(docker compose build *)",
+      "Bash(git push *)",
+      "Bash(vercel *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Bash(npm *)",
+      "Bash(rm *)"
+    ]
+  }
+}

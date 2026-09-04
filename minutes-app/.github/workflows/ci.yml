@@ -1,0 +1,46 @@
+# CI ── ローカルの判定器（npm run verify）と同じことを push 後にも走らせる（1-1-5・2-1-2）。
+# 「テストの件数が減っていないか」の検知は 2-5-15 の 3-4 で足したもの。
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  # テスト件数の下限。これを下回ったら「テストが消された」とみなして落とす（2-5-15）。
+  # テストを意図して増減させたときは、この値も一緒に更新する。
+  MIN_TESTS: 40
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取り出す
+        uses: actions/checkout@v6
+
+      - name: Node.js を用意する
+        uses: actions/setup-node@v4
+        with:
+          # Dockerfile（node:22）と major を揃える（アプリ実装・AIコーディングの編集方針（Phase2） §8）
+          node-version: 22
+
+      - name: 依存を入れる
+        run: npm install
+
+      - name: 型チェックとテスト（ローカルと同じ判定器）
+        run: npm run verify
+
+      - name: 秘密情報らしき文字列が混ざっていないか確かめる
+        run: |
+          ! grep -rIn --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.next \
+            -e "BEGIN PRIVATE KEY" -e "sk-ant-api" .
+
+      - name: テストの件数が減っていないか
+        run: |
+          COUNT=$(npm test -- --reporter=json 2>/dev/null | grep -o '"numTotalTests":[0-9]*' | cut -d: -f2)
+          echo "テスト件数: $COUNT"
+          if [ "$COUNT" -lt "$MIN_TESTS" ]; then
+            echo "テストが減っています（期待 $MIN_TESTS 以上）"
+            exit 1
+          fi

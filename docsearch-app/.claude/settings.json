@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./scripts/verify)",
+      "Bash(./scripts/dev)",
+      "Bash(docker compose up *)",
+      "Bash(git status)",
+      "Bash(git diff *)"
+    ],
+    "ask": [
+      "Bash(./scripts/install)",
+      "Bash(./scripts/ingest)",
+      "Bash(docker compose build *)",
+      "Bash(docker compose run --rm app *)",
+      "Bash(git push *)",
+      "Bash(vercel *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Bash(npm *)",
+      "Bash(rm *)",
+      "Edit(./corpus/**)",
+      "Write(./corpus/**)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command",
+            "command": "jq -r '.tool_input.file_path' | xargs npx prettier --write" }
+        ]
+      }
+    ]
+  }
+}

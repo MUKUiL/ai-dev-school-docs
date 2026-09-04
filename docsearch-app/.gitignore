@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.env
+.env.local
+*.tsbuildinfo
+
+# ルートの .gitignore が .claude/ を全階層で除外しているため、
+# このサンプルの settings.json と skills/（いずれも配布物）だけを除外解除する。
+# 個人設定（settings.local.json）は残さない。
+!/.claude/
+/.claude/*
+!/.claude/settings.json
+!/.claude/skills/

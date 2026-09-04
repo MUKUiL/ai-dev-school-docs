@@ -1,0 +1,31 @@
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: #f8f9fb; color: #1a1d26;
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif; line-height: 1.7;
+}
+.app { max-width: 700px; margin: 0 auto; padding: 26px 18px; }
+.app h1 { font-size: 24px; margin: 0 0 14px; }
+.form { display: flex; gap: 12px; }
+.form input {
+  flex: 1; padding: 12px; font-size: 15px; border: 1px solid #dde2ea;
+  border-radius: 8px; background: #fff; color: #1a1d26;
+}
+.btn {
+  padding: 8px 20px; font-size: 15px; background: #2563eb; color: #fff;
+  border: none; border-radius: 8px; cursor: pointer;
+}
+.btn:disabled { background: #94a3b8; cursor: default; }
+.hint { color: #5c6370; font-size: 14px; }
+.error {
+  margin-top: 18px; padding: 14px 16px; border: 1px solid #fca5a5;
+  background: #fef2f2; border-radius: 8px;
+}
+.result h2 { font-size: 18px; margin: 22px 0 8px; }
+.result ul { list-style: none; padding: 0; margin: 0; }
+.result li {
+  padding: 10px 0; border-bottom: 1px solid #e2e6ed; font-size: 15px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.doc { font-weight: 700; color: #059669; }
+.excerpt { color: #3c4250; }

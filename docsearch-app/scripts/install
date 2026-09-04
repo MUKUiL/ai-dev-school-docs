@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# 依存の再取得。package.json を変えたときに使う（人の承認後に実行する運用）。
+# 依存はコンテナ側の node_modules ボリュームに入り、ホストには作られない。
+set -euo pipefail
+cd "$(dirname "$0")/.."
+docker compose run --rm app npm install
+exec docker compose build

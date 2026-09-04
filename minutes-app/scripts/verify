@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# 判定器の入口。中身はコンテナ内の npm run verify（型チェック＋テスト）。
+# ホストに Node.js は不要。API キーが無くても緑になる（テストはモックで完結）。
+set -euo pipefail
+cd "$(dirname "$0")/.."
+exec docker compose run --rm app npm run verify
