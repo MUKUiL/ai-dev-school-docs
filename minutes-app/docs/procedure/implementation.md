@@ -401,7 +401,7 @@ docker compose build     # 初回のみ。依存の取得（npm install）を含
 
 #### ホストで `npm run dev` したい場合（非推奨・旧手順）
 
-**非推奨の旧手順です。**ホストに Node.js と `node_modules` が入るため、「ホストに入れない」というこのサンプルの方針（[`アプリ実装・AIコーディングの編集方針（Phase2）.md`](../../../../docs/policy/current/アプリ実装・AIコーディングの編集方針（Phase2）.md) D-1〜D-3）からは外れます。Docker が使えない事情がある場合に限り、それを理解したうえで行ってください。
+**非推奨の旧手順です。**ホストに Node.js と `node_modules` が入るため、「ホストに入れない」というこのサンプルの方針（[`minutes-app/README.md`](../../README.md) 冒頭「実行は Docker の中で行います」）からは外れます。Docker が使えない事情がある場合に限り、それを理解したうえで行ってください。
 
 1. **Node.js を用意する。**コンテナと同じ **Node.js 22 系**（`Dockerfile` の `node:22`）を推奨。Next.js が要求するバージョンは変わることがあるため、[Next.js 公式の動作要件](https://nextjs.org/docs/app/getting-started/installation)を確認してください（参照日 2026-08-28）
 2. **依存をホストに入れる**：`npm install`（`node_modules/` がホストに作られます。`.gitignore` 済みなのでコミットには入りません）

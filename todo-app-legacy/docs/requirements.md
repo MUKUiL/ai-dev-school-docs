@@ -2,7 +2,7 @@
 
 > **この文書の位置づけ**：Ver1 系の**デバッグ演習用**サンプルです。Python（FastAPI）＋ React の最小構成で、API とフロントの切り分けを学ぶ題材です。
 >
-> 現行教材の主サンプルは [todo-app](../todo-app/) です。本アプリは legacy として残しています。
+> 現行教材の主サンプルは [todo-app](../../todo-app/) です。本アプリは legacy として残しています。
 >
 > フォーマットは [`samples/references/要件定義書_フォーマット.md`](../../references/要件定義書_フォーマット.md) に準拠しています。
 
@@ -189,4 +189,4 @@ flowchart LR
 
 | 文書 | 内容 |
 | --- | --- |
-| [../todo-app/docs/requirements.md](../todo-app/docs/requirements.md) | Ver2 Phase 1 の現行題材 |
+| [todo-app/docs/requirements.md](../../todo-app/docs/requirements.md) | Ver2 Phase 1 の現行題材 |
